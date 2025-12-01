@@ -1229,7 +1229,23 @@ section {
     padding: 20px 30px;
     border-top: 1px solid var(--border-color);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-footer-logo {
+    height: 30px;
+    opacity: 0.7;
+}
+
+.modal-footer .btn {
+    background: #8b8b8b;
+    color: white;
+    border: none;
+}
+
+.modal-footer .btn:hover {
+    background: #757575;
 }
 
 /* ==========================================
