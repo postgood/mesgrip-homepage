@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MESGRIP - 인쇄공정 통합관리 솔루션">
+    <title>MESGRIP - 스마트한 인쇄 생산관리</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="MESGRIP Logo" class="logo-img">
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">홈</a>
+                    <a href="#solutions" class="nav-link">솔루션</a>
+                    <a href="#products" class="nav-link">서비스상품</a>
+                    <a href="#benefits" class="nav-link">기대효과</a>
+                    <a href="#apply" class="nav-link btn-nav-highlight">무료 체험</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">인쇄 산업의 디지털 혁신</div>
+                <h1 class="hero-title">
+                    스마트한 인쇄 생산관리<br>
+                    <span class="highlight">MESGRIP</span>으로 시작하세요
+                </h1>
+                <p class="hero-description">
+                    수주부터 생산, 정산까지 하나로 연결되는<br>
+                    인쇄공정 통합관리 솔루션
+                </p>
+                <div class="hero-buttons">
+                    <a href="#apply" class="btn btn-primary btn-large">
+                        <span>무료 체험 시작하기</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#solutions" class="btn btn-secondary btn-large">
+                        <span>자세히 알아보기</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 솔루션 소개 -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">SOLUTIONS</span>
+                <h2 class="section-title">통합 관리의 모든 것</h2>
+                <p class="section-description">
+                    인쇄 사업의 모든 프로세스를 하나의 시스템으로 관리하세요
+                </p>
+            </div>
+            
+            <div class="solution-list">
+                <!-- 수주관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 12H15M9 16H15M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M13 3V8C13 9.10457 13.8954 10 15 10H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">수주관리</h3>
+                                <p class="solution-description">작업 등록부터 견적서 발행, 수주 확정까지 거래처별 수주 현황을 실시간으로 관리하고 변경사항을 즉시 공지할 수 있습니다.</p>
+                                <ul class="solution-features">
+                                    <li>작업 등록 및 수정 관리</li>
+                                    <li>견적서 자동 발행</li>
+                                    <li>수주 진행상태 트래킹</li>
+                                    <li>거래처별 현황 조회</li>
+                                    <li>변경사항 실시간 공지</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/order_process.png" alt="수주 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/order_image01.png" alt="수주관리 화면" class="solution-screenshot">
+                    </div>
+                </div>
+
+                <!-- 생산관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 13H8L10 17L14 7L16 13H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">생산관리</h3>
+                                <p class="solution-description">공정별 작업 진행상황을 한눈에 파악하고 작업지시서를 자동 생성하여 효율적인 생산 프로세스를 구축하세요.</p>
+                                <ul class="solution-features">
+                                    <li>공정별 진행상황 관리</li>
+                                    <li>작업지시서 자동 생성</li>
+                                    <li>실시간 생산현황 모니터링</li>
+                                    <li>설비 가동률 분석</li>
+                                    <li>불량률 추적 및 관리</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/work_process.png" alt="생산 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/work_image01.png" alt="생산관리 화면" class="solution-screenshot">
+                    </div>
+                </div>
+
+                <!-- 외주관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M13.5 10.5L21 3M21 3H15M21 3V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3.89543 5 3 5.89543 3 7V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 13H9M3 9H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">외주관리</h3>
+                                <p class="solution-description">협력업체와 실시간으로 소통하며 외주 발주부터 품질 검수까지 스마트하게 협업 관리할 수 있습니다.</p>
+                                <ul class="solution-features">
+                                    <li>외주업체 등록 및 평가</li>
+                                    <li>외주 발주 및 진행관리</li>
+                                    <li>외주비용 자동 정산</li>
+                                    <li>협력업체 실시간 소통</li>
+                                    <li>품질 검수 시스템</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/outsourcing_process.png" alt="외주 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/outsourcing_image01.png" alt="외주관리 화면" class="solution-screenshot">
+                    </div>
+                </div>
+
+                <!-- 패키지관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 7L12 3L4 7L12 11L20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 7V17L12 21L20 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 11V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">패키지관리</h3>
+                                <p class="solution-description">다품목 개별생산을 단일건으로 묶어 패키지별 원가 계산과 일정을 통합 관리할 수 있습니다.</p>
+                                <ul class="solution-features">
+                                    <li>다품목 일괄 등록 관리</li>
+                                    <li>세트 상품 구성 관리</li>
+                                    <li>패키지별 원가 계산</li>
+                                    <li>일정 통합 관리</li>
+                                    <li>출고 순서 자동 최적화</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/package_process.png" alt="패키지 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/package_image01.png" alt="패키지관리 화면" class="solution-screenshot">
+                    </div>
+                </div>
+
+                <!-- 물류관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 16V6C13 4.89543 13.8954 4 15 4H19C20.1046 4 21 4.89543 21 6V16M13 16H21M13 16H3M13 16L11 18M21 16L19 18M3 16V12C3 10.8954 3.89543 10 5 10H9M3 16L5 18M9 10V8C9 6.89543 9.89543 6 11 6H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="7" cy="20" r="2" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="17" cy="20" r="2" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">물류관리</h3>
+                                <p class="solution-description">입출고 등록부터 배송 스케줄, 차량 배차까지 실시간으로 배송 현황을 추적할 수 있습니다.</p>
+                                <ul class="solution-features">
+                                    <li>입고/출고 등록 및 추적</li>
+                                    <li>배송 스케줄 관리</li>
+                                    <li>차량 배차 최적화</li>
+                                    <li>실시간 배송 현황 조회</li>
+                                    <li>배송 완료 알림</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/distribution_process.png" alt="물류 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/distribution_image01.png" alt="물류관리 화면" class="solution-screenshot">
+                    </div>
+                </div>
+
+                <!-- 자재관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M17 21V8C17 6.89543 16.1046 6 15 6H9C7.89543 6 7 6.89543 7 8V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M12 6V3M12 11H12.01M12 15H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">자재관리</h3>
+                                <p class="solution-description">자재 입출고부터 재고 현황까지 실시간으로 조회하고 안전재고 알림으로 효율적으로 관리하세요.</p>
+                                <ul class="solution-features">
+                                    <li>자재 입출고 관리</li>
+                                    <li>재고 현황 실시간 조회</li>
+                                    <li>안전재고 알림 기능</li>
+                                    <li>발주 자동 추천</li>
+                                    <li>자재별 소요량 분석</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/stock_process.png" alt="자재 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/stock_image01.png" alt="자재관리 화면 1" class="solution-screenshot">
+                        <img src="./images/main/stock_image02.png" alt="자재관리 화면 2" class="solution-screenshot">
+                    </div>
+                </div>
+
+                <!-- 정산관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M6 12C6 12 6 10 6 10M18 12C18 12 18 14 18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M2 9H22M2 15H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">정산관리</h3>
+                                <p class="solution-description">매출/매입 자료를 등록하고 거래처별 정산을 관리하며 전자세금계산서를 연동하여 스마트하게 정산하세요.</p>
+                                <ul class="solution-features">
+                                    <li>매출/매입 자료 등록</li>
+                                    <li>거래처별 정산 관리</li>
+                                    <li>전자세금계산서 연동</li>
+                                    <li>수금/지급 스케줄 관리</li>
+                                    <li>손익 분석 및 리포트</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/ledger_process.png" alt="정산 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/ledger_image01.png" alt="정산관리 화면 1" class="solution-screenshot">
+                        <img src="./images/main/ledger_image02.png" alt="정산관리 화면 2" class="solution-screenshot">
+                    </div>
+                </div>
+
+                <!-- 통계관리 -->
+                <div class="solution-item" data-aos="fade-up">
+                    <div class="solution-header">
+                        <div class="solution-header-left">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 17V9M13 17V5M8 17V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="solution-title">통계관리</h3>
+                                <p class="solution-description">매출과 생산 통계를 분석하고 거래처별 실적을 조회하며 맞춤형 대시보드로 한눈에 파악하세요.</p>
+                                <ul class="solution-features">
+                                    <li>매출/생산 통계 분석</li>
+                                    <li>거래처별 실적 조회</li>
+                                    <li>기간별 비교 분석</li>
+                                    <li>품목별 수익성 분석</li>
+                                    <li>맞춤형 대시보드 제공</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="solution-header-right">
+                            <img src="./images/main/statistics_process.png" alt="통계 프로세스" class="process-diagram">
+                        </div>
+                    </div>
+                    <div class="solution-images">
+                        <img src="./images/main/statistics_image01.png" alt="통계관리 화면 1" class="solution-screenshot">
+                        <img src="./images/main/statistics_image02.png" alt="통계관리 화면 2" class="solution-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 상품 -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">PRODUCTS</span>
+                <h2 class="section-title">서비스 상품</h2>
+                <p class="section-description">
+                    비즈니스 규모에 맞는 최적의 상품을 선택하세요
+                </p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-card-content">
+                        <div class="product-badge">소기업</div>
+                        <h3 class="product-name">Small</h3>
+                        <p class="product-description">소규모 인쇄업체</p>
+                        <div class="product-price">
+                            <span class="price-amount">30만원</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>기본설정</li>
+                            <li>현장관리</li>
+                            <li>정산관리</li>
+                            <li>게시판</li>
+                            <li>사용자 5명</li>
+                        </ul>
+                    </div>
+                    <a href="#apply" class="btn btn-product" data-product="1">시작하기</a>
+                </div>
+
+                <div class="product-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card-content">
+                        <div class="product-badge popular">일반사업장</div>
+                        <h3 class="product-name">Standard</h3>
+                        <p class="product-description">일반규모 인쇄업체</p>
+                        <div class="product-price">
+                            <span class="price-amount">월 50만원</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>기본설정</li>
+                            <li>현장관리</li>
+                            <li>정산관리(거래처 수금현황)</li>
+                            <li>메세지(FAX, SMS, Email)</li>
+                            <li>게시판</li>
+                            <li>사용자 10명</li>
+                        </ul>
+                    </div>
+                    <a href="#apply" class="btn btn-product primary" data-product="2">시작하기</a>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card-content">
+                        <div class="product-badge">중소규모</div>
+                        <h3 class="product-name">Large</h3>
+                        <p class="product-description">중소규모 인쇄업체</p>
+                        <div class="product-price">
+                            <span class="price-amount">월 80만원</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>기본설정</li>
+                            <li>현장관리 (패키지)</li>
+                            <li>정산관리(거래처 수금현황)</li>
+                            <li>메세지(FAX, SMS, Email)</li>
+                            <li>자재관리</li>
+                            <li>게시판</li>
+                            <li>사용자 20명</li>
+                        </ul>
+                    </div>
+                    <a href="#apply" class="btn btn-product" data-product="3">시작하기</a>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card-content">
+                        <div class="product-badge">대규모</div>
+                        <h3 class="product-name">Premium</h3>
+                        <p class="product-description">대규모 인쇄업체</p>
+                        <div class="product-price">
+                            <span class="price-amount">160만원</span>
+                            <span class="price-period">부터</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>기본설정</li>
+                            <li>현장관리 (패키지)</li>
+                            <li>정산관리(거래처 수금현황)</li>
+                            <li>메세지(FAX, SMS, Email)</li>
+                            <li>자재관리</li>
+                            <li>통계관리</li>
+                            <li>게시판</li>
+                            <li>사용자 50명</li>
+                        </ul>
+                    </div>
+                    <a href="#apply" class="btn btn-product" data-product="4">문의하기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 기대효과 -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge light">BENEFITS</span>
+                <h2 class="section-title white">MESGRIP 도입 기대효과</h2>
+                <p class="section-description white">
+                    검증된 효과로 비즈니스 성장을 가속화하세요
+                </p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="zoom-in">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M13 10V3L4 14H11V21L20 10H13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">업무 효율 30% 향상</h3>
+                    <p class="benefit-description">
+                        자동화된 프로세스와 실시간 정보 공유로<br>
+                        반복 업무를 줄이고 생산성을 높입니다.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2V6M12 18V22M6 12H2M22 12H18M19.07 4.93L16.24 7.76M19.07 19.07L16.24 16.24M4.93 19.07L7.76 16.24M4.93 4.93L7.76 7.76" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">비용 절감 20%</h3>
+                    <p class="benefit-description">
+                        재고 최적화와 불량률 감소로<br>
+                        운영 비용을 효과적으로 절감합니다.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">품질 향상</h3>
+                    <p class="benefit-description">
+                        체계적인 공정 관리와 품질 검수로<br>
+                        불량률을 최소화하고 품질을 높입니다.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">납기 준수율 95%</h3>
+                    <p class="benefit-description">
+                        실시간 진행 관리와 일정 최적화로<br>
+                        고객 만족도를 크게 향상시킵니다.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M9 19V6L21 3V16M9 19C9 20.1046 7.88071 21 6.5 21C5.11929 21 4 20.1046 4 19C4 17.8954 5.11929 17 6.5 17C7.88071 17 9 17.8954 9 19ZM21 16C21 17.1046 19.8807 18 18.5 18C17.1193 18 16 17.1046 16 16C16 14.8954 17.1193 14 18.5 14C19.8807 14 21 14.8954 21 16ZM9 10L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">데이터 기반 의사결정</h3>
+                    <p class="benefit-description">
+                        통합 대시보드와 상세 분석으로<br>
+                        정확한 경영 판단을 지원합니다.
+                    </p>
+                </div>
+
+                <div class="benefit-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17 20H22V18C22 16.3431 20.6569 15 19 15C18.0444 15 17.1931 15.4468 16.6438 16.1429M17 20H7M17 20V18C17 17.3438 16.8736 16.717 16.6438 16.1429M7 20H2V18C2 16.3431 3.34315 15 5 15C5.95561 15 6.80686 15.4468 7.35625 16.1429M7 20V18C7 17.3438 7.12642 16.717 7.35625 16.1429M7.35625 16.1429C8.0935 14.301 9.89482 13 12 13C14.1052 13 15.9065 14.301 16.6438 16.1429M15 7C15 8.65685 13.6569 10 12 10C10.3431 10 9 8.65685 9 7C9 5.34315 10.3431 4 12 4C13.6569 4 15 5.34315 15 7ZM21 10C21 11.1046 20.1046 12 19 12C17.8954 12 17 11.1046 17 10C17 8.89543 17.8954 8 19 8C20.1046 8 21 8.89543 21 10ZM7 10C7 11.1046 6.10457 12 5 12C3.89543 12 3 11.1046 3 10C3 8.89543 3.89543 8 5 8C6.10457 8 7 8.89543 7 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="benefit-title">협업 강화</h3>
+                    <p class="benefit-description">
+                        부서 간 실시간 정보 공유로<br>
+                        원활한 커뮤니케이션을 실현합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 무료 체험 신청 -->
+    <section class="apply-section" id="apply">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">FREE TRIAL</span>
+                <h2 class="section-title">지금 바로 시작하세요</h2>
+                <p class="section-description">
+                    MESGRIP의 강력한 기능을 3개월간 무료로 체험해보세요
+                </p>
+            </div>
+
+            <div class="apply-form-container">
+                <form id="applyForm" class="apply-form">
+                    <div class="form-section">
+                        <h3 class="form-section-title">기본 정보</h3>
+                        
+                        <div class="form-group">
+                            <label for="cNm">회사명 <span class="required">*</span></label>
+                            <input type="text" id="cNm" name="cNm" placeholder="회사명을 입력하세요" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cBizNo">사업자등록번호 <span class="required">*</span></label>
+                                <input type="text" id="cBizNo" name="cBizNo" placeholder="000-00-00000" maxlength="12" required>
+                                <input type="hidden" id="cBizNoCheck" name="cBizNoCheck" value="N">
+                                <span class="cBizNoMessage"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cBizNoNum">종사업장번호</label>
+                                <input type="text" id="cBizNoNum" name="cBizNoNum" placeholder="0000" maxlength="4">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cOwnerNm">대표자명 <span class="required">*</span></label>
+                                <input type="text" id="cOwnerNm" name="cOwnerNm" placeholder="대표자명을 입력하세요" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cTel">연락처 <span class="required">*</span></label>
+                                <input type="tel" id="cTel" name="cTel" placeholder="010-0000-0000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sSeq">상품 선택 <span class="required">*</span></label>
+                            <select id="sSeq" name="sSeq" required>
+                                <option value="1">Small - 소기업 (30만원)</option>
+                                <option value="2" selected>Standard - 일반사업장 (월 50만원)</option>
+                                <option value="3">Large - 중소규모 (월 80만원)</option>
+                                <option value="4">Premium - 대규모 (160만원부터)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cAddr">주소</label>
+                            <div class="address-row">
+                                <input type="text" id="cZipcode" name="cZipcode" placeholder="우편번호" readonly>
+                                <input type="text" id="cAddr" name="cAddr" placeholder="기본주소" readonly>
+                                <button type="button" class="btn-address-search" id="searchAddressBtn">주소검색</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cAddrDetail">상세주소</label>
+                            <input type="text" id="cAddrDetail" name="cAddrDetail" placeholder="상세주소를 입력하세요">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">이메일 인증</h3>
+                        
+                        <div class="form-group">
+                            <label for="cInvoiceEmail">이메일 <span class="required">*</span></label>
+                            <div class="email-verification">
+                                <input type="email" id="cInvoiceEmail" name="cInvoiceEmail" placeholder="example@company.com" required>
+                                <button type="button" class="btn-verify" id="sendVerifyBtn">인증번호 발송</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group verification-group" id="verificationGroup" style="display: none;">
+                            <label for="verifyCode">인증번호 <span class="required">*</span></label>
+                            <div class="verification-input">
+                                <input type="text" id="verifyCode" name="verifyCode" placeholder="6자리 인증번호를 입력하세요" maxlength="6">
+                                <span class="timer" id="timer">05:00</span>
+                                <button type="button" class="btn-check" id="checkVerifyBtn">확인</button>
+                            </div>
+                            <div class="verification-status" id="verificationStatus"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">서비스 설정</h3>
+                        
+                        <div class="form-group">
+                            <label for="cDomain">사용할 HOST 명 <span class="required">*</span></label>
+                            <div class="host-input-wrapper">
+                                <input type="text" id="cDomain" name="cDomain" placeholder="영문/숫자만 입력" required>
+                                <span class="host-suffix">.mesgrip.com</span>
+                            </div>
+                            <input type="hidden" id="cDomainCheck" name="cDomainCheck" value="N">
+                            <span class="cDomainMessage"></span>
+                            <small class="form-hint">예: abc → abc.mesgrip.com (영문/숫자만 가능)</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">대표 직원 계정</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eNm">계정명 (이름) <span class="required">*</span></label>
+                                <input type="text" id="eNm" name="eNm" placeholder="관리자 이름" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="eId">계정 ID <span class="required">*</span></label>
+                                <input type="text" id="eId" name="eId" placeholder="영문/숫자 조합" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ePwd">비밀번호 <span class="required">*</span></label>
+                                <input type="password" id="ePwd" name="ePwd" placeholder="8자 이상" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ePwdRe">비밀번호 확인 <span class="required">*</span></label>
+                                <input type="password" id="ePwdRe" name="ePwdRe" placeholder="비밀번호 재입력" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">약관 동의</h3>
+                        
+                        <div class="terms-wrapper">
+                            <div class="terms-all">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="agreeAll">
+                                    <span><strong>전체 약관에 동의합니다</strong></span>
+                                </label>
+                            </div>
+
+                            <div class="terms-list">
+                                <div class="terms-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="agree-checkbox" name="useYn" id="useYn" required>
+                                        <span>[필수] 서비스 이용약관에 동의합니다</span>
+                                    </label>
+                                    <button type="button" class="btn-view-terms" data-terms="terms">전문보기</button>
+                                </div>
+
+                                <div class="terms-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="agree-checkbox" name="informationYn" id="informationYn" required>
+                                        <span>[필수] 개인정보 수집 및 이용에 동의합니다</span>
+                                    </label>
+                                    <button type="button" class="btn-view-terms" data-terms="privacy">전문보기</button>
+                                </div>
+
+                                <div class="terms-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="agree-checkbox" name="informationYn" id="informationYn2" required>
+                                        <span>[필수] 개인정보 제3자 제공에 동의합니다</span>
+                                    </label>
+                                    <button type="button" class="btn-view-terms" data-terms="thirdparty">전문보기</button>
+                                </div>
+
+                                <div class="terms-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="marketingYn" id="marketingYn">
+                                        <span>[선택] 마케팅 정보 수신에 동의합니다</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit btn-large" id="submitBtn" disabled>
+                        <span>무료 체험 신청하기</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <!-- 푸터 메뉴 -->
+            <div class="footer-menu">
+                <a href="https://hyuninc.kr/main_in-progress-2" target="_blank" rel="noopener noreferrer">회사소개</a>
+                <a href="https://naver.me/xydsgRHj" target="_blank" rel="noopener noreferrer">오시는길</a>
+                <a href="#" class="footer-modal-link" data-modal="termsOfUse">이용약관</a>
+                <a href="#" class="footer-modal-link" data-modal="privacyCollection">개인정보수집 및 이용안내</a>
+                <a href="#" class="footer-modal-link" data-modal="privacyPolicy">개인정보 처리방침</a>
+                <a href="#" class="footer-modal-link" data-modal="copyright">저작권 및 책임의 한계</a>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Contact</h4>
+                    <p>서울 중구 서애로5길 17, HB빌딩 2층</p>
+                    <p>TEL. 02-2275-3758</p>
+                    <p>FAX. 02-2275-3759</p>
+                    <p>Email. support@mesgrip.com</p>
+                </div>
+                <div class="footer-company">
+                    <h4>Company</h4>
+                    <p>(주)현아이앤씨</p>
+                    <p>대표: 권재현</p>
+                    <p>사업자번호: 688-86-03757</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>COPYRIGHT © 2024 현아이앤씨 ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 스크롤 투 탑 -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 15L12 8L19 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- 약관 모달 -->
+    <div class="modal" id="termsModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">약관</h3>
+                <button class="modal-close" id="closeModal">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- 약관 내용 -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeModalBtn">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 확인 모달 -->
+    <div class="modal confirm-modal" id="confirmModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content confirm-content">
+            <div class="confirm-icon">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3 class="confirm-title" id="confirmTitle">확인</h3>
+            <p class="confirm-message" id="confirmMessage">메시지</p>
+            <div class="confirm-url" id="confirmUrl"></div>
+            <div class="confirm-buttons">
+                <button class="btn btn-secondary" id="confirmCancelBtn">취소</button>
+                <button class="btn btn-primary" id="confirmOkBtn">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="./js/terms.js"></script>
+    <script src="./js/footer-terms.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>

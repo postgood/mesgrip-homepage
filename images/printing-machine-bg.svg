@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="machineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#34495e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="paperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:0.95" />
+    </linearGradient>
+    <linearGradient id="overlayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.85" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.85" />
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Machine body background -->
+  <rect width="1920" height="1080" fill="url(#machineGrad)"/>
+  
+  <!-- Machine details - mechanical parts -->
+  <g opacity="0.3">
+    <rect x="0" y="200" width="1920" height="60" fill="#1a252f"/>
+    <rect x="0" y="820" width="1920" height="60" fill="#1a252f"/>
+    
+    <!-- Bolts and mechanical details -->
+    <circle cx="100" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="300" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="500" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="700" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="900" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="1100" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="1300" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="1500" cy="230" r="15" fill="#95a5a6"/>
+    <circle cx="1700" cy="230" r="15" fill="#95a5a6"/>
+    
+    <circle cx="100" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="300" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="500" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="700" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="900" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="1100" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="1300" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="1500" cy="850" r="15" fill="#95a5a6"/>
+    <circle cx="1700" cy="850" r="15" fill="#95a5a6"/>
+  </g>
+  
+  <!-- Roller cylinders -->
+  <ellipse cx="960" cy="260" rx="600" ry="40" fill="#34495e" opacity="0.4"/>
+  <ellipse cx="960" cy="820" rx="600" ry="40" fill="#34495e" opacity="0.4"/>
+  
+  <!-- Papers feeding through (multiple sheets with motion) -->
+  <g filter="url(#shadow)">
+    <!-- Paper 1 - entering -->
+    <rect x="100" y="350" width="400" height="380" fill="url(#paperGrad)" rx="3">
+      <animate attributeName="x" values="100;1500" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0.3" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Paper 2 - middle -->
+    <rect x="-300" y="350" width="400" height="380" fill="url(#paperGrad)" rx="3">
+      <animate attributeName="x" values="-300;1500" dur="8s" begin="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0.3" dur="8s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Paper 3 - exiting -->
+    <rect x="-700" y="350" width="400" height="380" fill="url(#paperGrad)" rx="3">
+      <animate attributeName="x" values="-700;1500" dur="8s" begin="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0.3" dur="8s" begin="4s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Paper 4 -->
+    <rect x="-1100" y="350" width="400" height="380" fill="url(#paperGrad)" rx="3">
+      <animate attributeName="x" values="-1100;1500" dur="8s" begin="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0.3" dur="8s" begin="6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- CMYK color bars (printing simulation) -->
+  <g opacity="0.6">
+    <rect x="600" y="500" width="200" height="20" fill="#00FFFF">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="600" y="530" width="200" height="20" fill="#FF00FF">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="600" y="560" width="200" height="20" fill="#FFFF00">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="600" y="590" width="200" height="20" fill="#000000">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Light reflections -->
+  <g opacity="0.1">
+    <rect x="0" y="0" width="400" height="1080" fill="white">
+      <animate attributeName="x" values="-400;1920" dur="10s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Gradient overlay for text readability -->
+  <rect width="1920" height="1080" fill="url(#overlayGrad)"/>
+  
+  <!-- Subtle texture overlay -->
+  <rect width="1920" height="1080" fill="url(#machineGrad)" opacity="0.1"/>
+</svg>
+

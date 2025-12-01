@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a5568;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d3748;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a202c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="paperWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f7fafc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="rollerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#cbd5e0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a0aec0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#718096;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="paperShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="metalReflection">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="1" dy="2"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 배경 - 어두운 기계 본체 -->
+  <rect width="1920" height="1080" fill="url(#metalGrad)"/>
+  
+  <!-- 상단 롤러 섹션 -->
+  <g>
+    <!-- 상단 기계 프레임 -->
+    <rect x="0" y="150" width="1920" height="180" fill="#1a202c" opacity="0.8"/>
+    <rect x="0" y="150" width="1920" height="8" fill="#2d3748"/>
+    <rect x="0" y="322" width="1920" height="8" fill="#0d1117"/>
+    
+    <!-- 상단 롤러 -->
+    <ellipse cx="960" cy="240" rx="800" ry="60" fill="url(#rollerGrad)" filter="url(#metalReflection)"/>
+    <ellipse cx="960" cy="240" rx="800" ry="45" fill="#9ca3af" opacity="0.3"/>
+    
+    <!-- 롤러 디테일 -->
+    <rect x="160" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="360" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="560" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="760" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="960" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1160" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1360" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1560" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1760" y="200" width="4" height="80" fill="#718096" opacity="0.6"/>
+  </g>
+  
+  <!-- 중앙 - 종이 투입 영역 (확대된 부분) -->
+  <g filter="url(#paperShadow)">
+    <!-- 메인 종이 (중앙, 크게) -->
+    <rect x="600" y="340" width="720" height="500" fill="url(#paperWhite)" rx="4" opacity="0.95">
+      <title>투입되는 인쇄 용지</title>
+    </rect>
+    
+    <!-- 종이 상단 엣지 하이라이트 -->
+    <rect x="600" y="340" width="720" height="2" fill="#e2e8f0" opacity="0.8"/>
+    
+    <!-- 종이 질감 라인들 -->
+    <line x1="650" y1="400" x2="1270" y2="400" stroke="#f1f5f9" stroke-width="1" opacity="0.3"/>
+    <line x1="650" y1="480" x2="1270" y2="480" stroke="#f1f5f9" stroke-width="1" opacity="0.3"/>
+    <line x1="650" y1="560" x2="1270" y2="560" stroke="#f1f5f9" stroke-width="1" opacity="0.3"/>
+    <line x1="650" y1="640" x2="1270" y2="640" stroke="#f1f5f9" stroke-width="1" opacity="0.3"/>
+    <line x1="650" y1="720" x2="1270" y2="720" stroke="#f1f5f9" stroke-width="1" opacity="0.3"/>
+    <line x1="650" y1="800" x2="1270" y2="800" stroke="#f1f5f9" stroke-width="1" opacity="0.3"/>
+    
+    <!-- 뒤쪽 종이 (스택) -->
+    <rect x="560" y="355" width="720" height="485" fill="#e2e8f0" rx="4" opacity="0.4"/>
+    <rect x="520" y="370" width="720" height="470" fill="#cbd5e0" rx="4" opacity="0.3"/>
+    
+    <!-- 앞쪽 종이 (다음 투입 대기) -->
+    <rect x="340" y="360" width="240" height="460" fill="url(#paperWhite)" rx="4" opacity="0.85"/>
+    <rect x="1340" y="360" width="240" height="460" fill="url(#paperWhite)" rx="4" opacity="0.85"/>
+  </g>
+  
+  <!-- 종이 가이드 레일 (양옆) -->
+  <g opacity="0.7">
+    <!-- 왼쪽 가이드 -->
+    <rect x="580" y="320" width="25" height="540" fill="#4a5568" filter="url(#metalReflection)"/>
+    <rect x="582" y="320" width="4" height="540" fill="#718096" opacity="0.5"/>
+    
+    <!-- 오른쪽 가이드 -->
+    <rect x="1315" y="320" width="25" height="540" fill="#4a5568" filter="url(#metalReflection)"/>
+    <rect x="1334" y="320" width="4" height="540" fill="#718096" opacity="0.5"/>
+    
+    <!-- 가이드 볼트 -->
+    <circle cx="592" cy="360" r="8" fill="#2d3748"/>
+    <circle cx="592" cy="360" r="4" fill="#4a5568"/>
+    <circle cx="592" cy="520" r="8" fill="#2d3748"/>
+    <circle cx="592" cy="520" r="4" fill="#4a5568"/>
+    <circle cx="592" cy="680" r="8" fill="#2d3748"/>
+    <circle cx="592" cy="680" r="4" fill="#4a5568"/>
+    <circle cx="592" cy="820" r="8" fill="#2d3748"/>
+    <circle cx="592" cy="820" r="4" fill="#4a5568"/>
+    
+    <circle cx="1328" cy="360" r="8" fill="#2d3748"/>
+    <circle cx="1328" cy="360" r="4" fill="#4a5568"/>
+    <circle cx="1328" cy="520" r="8" fill="#2d3748"/>
+    <circle cx="1328" cy="520" r="4" fill="#4a5568"/>
+    <circle cx="1328" cy="680" r="8" fill="#2d3748"/>
+    <circle cx="1328" cy="680" r="4" fill="#4a5568"/>
+    <circle cx="1328" cy="820" r="8" fill="#2d3748"/>
+    <circle cx="1328" cy="820" r="4" fill="#4a5568"/>
+  </g>
+  
+  <!-- 하단 롤러 섹션 -->
+  <g>
+    <!-- 하단 기계 프레임 -->
+    <rect x="0" y="870" width="1920" height="180" fill="#1a202c" opacity="0.8"/>
+    <rect x="0" y="870" width="1920" height="8" fill="#0d1117"/>
+    <rect x="0" y="1042" width="1920" height="8" fill="#2d3748"/>
+    
+    <!-- 하단 롤러 -->
+    <ellipse cx="960" cy="960" rx="800" ry="60" fill="url(#rollerGrad)" filter="url(#metalReflection)"/>
+    <ellipse cx="960" cy="960" rx="800" ry="45" fill="#9ca3af" opacity="0.3"/>
+    
+    <!-- 롤러 디테일 -->
+    <rect x="160" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="360" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="560" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="760" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="960" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1160" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1360" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1560" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+    <rect x="1760" y="920" width="4" height="80" fill="#718096" opacity="0.6"/>
+  </g>
+  
+  <!-- 미세한 빛 반사 효과 -->
+  <g opacity="0.08">
+    <rect x="400" y="0" width="200" height="1080" fill="white"/>
+    <rect x="1100" y="0" width="300" height="1080" fill="white"/>
+  </g>
+  
+  <!-- 기계 디테일 - 측면 패널 -->
+  <rect x="0" y="330" width="140" height="540" fill="#0d1117" opacity="0.6"/>
+  <rect x="1780" y="330" width="140" height="540" fill="#0d1117" opacity="0.6"/>
+  
+  <!-- 패널 볼트 -->
+  <g opacity="0.5">
+    <circle cx="70" cy="400" r="12" fill="#2d3748"/>
+    <circle cx="70" cy="400" r="6" fill="#4a5568"/>
+    <circle cx="70" cy="800" r="12" fill="#2d3748"/>
+    <circle cx="70" cy="800" r="6" fill="#4a5568"/>
+    
+    <circle cx="1850" cy="400" r="12" fill="#2d3748"/>
+    <circle cx="1850" cy="400" r="6" fill="#4a5568"/>
+    <circle cx="1850" cy="800" r="12" fill="#2d3748"/>
+    <circle cx="1850" cy="800" r="6" fill="#4a5568"/>
+  </g>
+</svg>
+
