@@ -14,7 +14,7 @@ const API_URL = (function() {
     return 'http://127.0.0.1:8024/public/ws';
 })();
 
-console.log('🔗 API URL:', API_URL);
+//console.log('🔗 API URL:', API_URL);
 
 // ==========================================
 // 전역 변수
@@ -464,14 +464,14 @@ function initFormHandlers() {
     $('#agreeAll').change(function() {
         const isChecked = $(this).prop('checked');
         $('.agree-checkbox').prop('checked', isChecked);
-        $('#agreeMarketing').prop('checked', isChecked);
+        $('#marketingYn').prop('checked', isChecked);
         checkFormValidity();
     });
 
     // 개별 약관 체크박스
-    $('.agree-checkbox, #agreeMarketing').change(function() {
+    $('.agree-checkbox, #marketingYn').change(function() {
         const allChecked = $('.agree-checkbox').length === $('.agree-checkbox:checked').length &&
-                          $('#agreeMarketing').prop('checked');
+                          $('#marketingYn').prop('checked');
         $('#agreeAll').prop('checked', allChecked);
         checkFormValidity();
     });
