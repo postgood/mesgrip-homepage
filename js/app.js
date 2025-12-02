@@ -722,7 +722,7 @@ function checkFormValidity() {
     const ePwdRe = $('#ePwdRe').val();
     const useYn = $('#useYn').prop('checked');
     const informationYn = $('#informationYn').prop('checked');
-    const informationYn2 = $('#informationYn2').prop('checked');
+    const thirdPartyYn = $('#thirdPartyYn').prop('checked');
     const cBizNoCheck = $('#cBizNoCheck').val();
     const cDomainCheck = $('#cDomainCheck').val();
 
@@ -740,7 +740,7 @@ function checkFormValidity() {
 
     const isValid = cNm && cBizNo && bizNoValid && cOwnerNm && cTel && cInvoiceEmail && sSeq &&
                    domainValid && eNm && eId && passwordMatch && passwordValid &&
-                   isVerified && useYn && informationYn && informationYn2;
+                   isVerified && useYn && informationYn && thirdPartyYn;
 
     $('#submitBtn').prop('disabled', !isValid);
 }
@@ -757,7 +757,7 @@ function submitApplication() {
     // 필수 약관 확인
     if (!$('#useYn').prop('checked') || 
         !$('#informationYn').prop('checked') || 
-        !$('#informationYn2').prop('checked')) {
+        !$('#thirdPartyYn').prop('checked')) {
         alert('필수 약관에 모두 동의해주세요.');
         return;
     }
@@ -823,6 +823,7 @@ function submitApplication() {
         ePwd: ePwd,
         useYn: $('#useYn').prop('checked') ? 'Y' : 'N',
         informationYn: $('#informationYn').prop('checked') ? 'Y' : 'N',
+        thirdPartyYn: $('#thirdPartyYn').prop('checked') ? 'Y' : 'N',
         marketingYn: $('#marketingYn').prop('checked') ? 'Y' : 'N',
         jtSeq: jtSeq
     };
