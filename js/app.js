@@ -1,7 +1,20 @@
 // ==========================================
 // API 설정
 // ==========================================
-const API_URL = 'http://127.0.0.1:8024/public/ws';
+// 도메인에 따라 API URL 자동 전환
+const API_URL = (function() {
+    const hostname = window.location.hostname;
+    
+    // www.mesgrip.com으로 접근하면 실제 API 서버 사용
+    if (hostname === 'www.mesgrip.com' || hostname === 'mesgrip.com') {
+        return 'https://api.mesgrip.com/ws';
+    }
+    
+    // 그 외의 경우 (localhost, 127.0.0.1, 테스트 도메인 등) 테스트 서버 사용
+    return 'http://127.0.0.1:8024/public/ws';
+})();
+
+console.log('🔗 API URL:', API_URL);
 
 // ==========================================
 // 전역 변수
@@ -40,9 +53,13 @@ function initProductSelection() {
         // 신청 양식으로 부드럽게 스크롤
         $('html, body').animate({
             scrollTop: $('#apply').offset().top - 100
-        }, 800, function() {
-            // 스크롤 완료 후 포커스
-            $('#cNm').focus();
+        }, {
+            duration: 1000,
+            easing: 'easeInOutQuart',
+            complete: function() {
+                // 스크롤 완료 후 포커스
+                $('#cNm').focus();
+            }
         });
     });
 }
@@ -67,6 +84,24 @@ $(document).ready(function() {
 // 네비게이션
 // ==========================================
 function initNavigation() {
+    // 로고 클릭 시 최상단으로 스크롤
+    $('.logo').on('click', function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1000, 'easeInOutQuart');
+        
+        // 홈 메뉴 활성화
+        $('.nav-link').removeClass('active');
+        $('.nav-link[href="#home"]').addClass('active');
+    });
+    
+    // 모바일 메뉴 토글
+    $('#mobileMenuBtn').on('click', function(e) {
+        e.stopPropagation();
+        $(this).toggleClass('active');
+        $('.nav').toggleClass('active');
+    });
+    
     // 스크롤 시 헤더 스타일 변경
     $(window).scroll(function() {
         if ($(this).scrollTop() > 50) {
@@ -77,21 +112,32 @@ function initNavigation() {
     });
 
     // 네비게이션 링크 클릭 이벤트
-    $('.nav-link').click(function(e) {
+    $('.nav-link').on('click', function(e) {
         e.preventDefault();
         const target = $(this).attr('href');
         
+        // 스크롤 애니메이션 (부드러운 감속 효과)
         $('html, body').animate({
             scrollTop: $(target).offset().top - 80
-        }, 600);
+        }, 1000, 'easeInOutQuart');
 
+        // active 클래스 업데이트
         $('.nav-link').removeClass('active');
         $(this).addClass('active');
+        
+        // 모바일 메뉴 닫기 (약간의 지연)
+        setTimeout(function() {
+            $('#mobileMenuBtn').removeClass('active');
+            $('.nav').removeClass('active');
+        }, 100);
     });
-
-    // 모바일 메뉴 토글
-    $('#mobileMenuBtn').click(function() {
-        $('.nav').slideToggle();
+    
+    // 메뉴 외부 클릭 시 닫기
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.nav').length && !$(e.target).closest('#mobileMenuBtn').length) {
+            $('#mobileMenuBtn').removeClass('active');
+            $('.nav').removeClass('active');
+        }
     });
 }
 
@@ -109,7 +155,7 @@ function initScrollEffects() {
     });
 
     $('#scrollToTop').click(function() {
-        $('html, body').animate({ scrollTop: 0 }, 600);
+        $('html, body').animate({ scrollTop: 0 }, 1000, 'easeInOutQuart');
         return false;
     });
 
@@ -839,8 +885,8 @@ function resetForm() {
     // 버튼 상태 업데이트
     checkFormValidity();
     
-    // 페이지 상단으로 스크롤
-    $('html, body').animate({ scrollTop: 0 }, 600);
+    // 페이지 상단으로 스크롤 (부드러운 감속 효과)
+    $('html, body').animate({ scrollTop: 0 }, 1000, 'easeInOutQuart');
 }
 
 // ==========================================
