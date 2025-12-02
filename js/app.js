@@ -64,6 +64,22 @@ function initProductSelection() {
     });
 }
 
+// ==========================================
+// 히어로 버튼 스크롤 핸들러
+// ==========================================
+function initHeroButtons() {
+    $('.hero-buttons a').on('click', function(e) {
+        e.preventDefault();
+        const target = $(this).attr('href');
+        
+        if (target && target.startsWith('#')) {
+            $('html, body').animate({
+                scrollTop: $(target).offset().top - 80
+            }, 1000, 'easeInOutQuart');
+        }
+    });
+}
+
 $(document).ready(function() {
     initNavigation();
     initScrollEffects();
@@ -73,6 +89,7 @@ $(document).ready(function() {
     initBusinessNumberFormat();
     initDomainCheck();
     initProductSelection();
+    initHeroButtons();
     
     // 푸터 모달 초기화
     if (typeof initFooterModals === 'function') {
@@ -827,7 +844,7 @@ function submitApplication() {
                 
                 showConfirm(
                     '가입이 완료되었습니다!',
-                    '신청 정보가 메일로 발송 되었습니다.\n3개월 무료 체험이 시작되었습니다.\n신청하신 사이트로 바로 이동하시겠습니까?',
+                    '신청 정보가 메일로 발송 되었습니다.\n<strong style="color: #2563eb; font-size: 18px;">3개월 무료 체험</strong>이 시작되었습니다.\n신청하신 사이트로 바로 이동하시겠습니까?',
                     siteUrl,
                     function(confirmed) {
                         if (confirmed) {
