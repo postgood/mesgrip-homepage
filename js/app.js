@@ -517,8 +517,10 @@ function sendVerificationEmail() {
                 jtSeq = response.data.jtSeq;
                 showMessage('success', '인증번호가 발송되었습니다. 이메일을 확인해주세요.');
                 
-                // 인증 입력 필드 표시
+                // 인증 입력 필드 표시 및 활성화
                 $('#verificationGroup').slideDown();
+                $('#verifyCode').prop('disabled', false).val('');
+                $('#checkVerifyBtn').prop('disabled', false).text('확인');
                 
                 // 타이머 시작
                 startTimer();
@@ -583,9 +585,14 @@ function checkVerificationCode() {
                 clearInterval(verificationTimer);
                 $('#timer').text('인증완료').css('color', '#10b981');
                 
-                // 인증 필드 비활성화
+                // 인증 필드 및 이메일 필드 비활성화
+                $('#cEmail').prop('readonly', true).css({
+                    'background-color': '#f8fafc',
+                    'cursor': 'not-allowed'
+                });
                 $('#verifyCode').prop('disabled', true);
                 $('#checkVerifyBtn').prop('disabled', true).text('인증완료');
+                $('#sendVerifyBtn').prop('disabled', true);
                 
                 // 폼 유효성 검사
                 checkFormValidity();
@@ -621,8 +628,9 @@ function startTimer() {
         if (timeLeft <= 0) {
             clearInterval(verificationTimer);
             showVerificationStatus('error', '인증 시간이 만료되었습니다. 다시 발송해주세요.');
-            $('#verifyCode').prop('disabled', true);
+            $('#verifyCode').prop('disabled', true).val('');
             $('#checkVerifyBtn').prop('disabled', true);
+            $('#timer').text('시간만료').css('color', '#ef4444');
         }
     }, 1000);
 }
@@ -818,8 +826,8 @@ function submitApplication() {
                 const siteUrl = 'https://' + cDomain + '.mesgrip.com';
                 
                 showConfirm(
-                    '가입이 완료되었습니다! 🎉',
-                    '신청하신 사이트로 바로 이동하시겠습니까?\n3개월 무료 체험이 시작되었습니다.',
+                    '가입이 완료되었습니다!',
+                    '신청 정보가 메일로 발송 되었습니다.\n3개월 무료 체험이 시작되었습니다.\n신청하신 사이트로 바로 이동하시겠습니까?',
                     siteUrl,
                     function(confirmed) {
                         if (confirmed) {
@@ -829,11 +837,6 @@ function submitApplication() {
                         
                         // 폼 초기화
                         resetForm();
-                        
-                        // 완료 메시지
-                        setTimeout(function() {
-                            alert('로그인 정보는 이메일로 발송되었습니다.');
-                        }, 300);
                     }
                 );
             } else {

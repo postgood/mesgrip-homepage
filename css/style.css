@@ -177,7 +177,7 @@ img {
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: url('../images/printing-machine.jpg') center center;
+    background: url('../images/printing-machine.png') center center;
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
@@ -1289,13 +1289,16 @@ section {
    확인 모달
    ========================================== */
 .confirm-modal .modal-content {
-    max-width: 500px;
-    padding: 0;
+    max-width: 520px;
+    padding: 20px 0;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .confirm-content {
-    padding: 50px 40px 40px;
+    padding: 20px 40px;
     text-align: center;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
 }
 
 .confirm-icon {
@@ -1314,36 +1317,36 @@ section {
 }
 
 .confirm-icon svg {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     stroke: white;
-    stroke-width: 2.5;
+    stroke-width: 3;
 }
 
 .confirm-title {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 800;
     color: var(--text-dark);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
 }
 
 .confirm-message {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 20px;
+    line-height: 1.7;
+    margin-bottom: 30px;
     white-space: pre-line;
 }
 
 .confirm-url {
-    background: var(--bg-light);
+    background: none;
     border: none;
-    border-radius: 12px;
-    padding: 16px 20px;
+    padding: 0;
     margin-bottom: 30px;
     font-family: 'Courier New', monospace;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     color: var(--primary-color);
     word-break: break-all;
 }
@@ -1352,36 +1355,42 @@ section {
     display: flex;
     gap: 12px;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .confirm-buttons .btn {
     min-width: 120px;
-    padding: 14px 30px;
+    padding: 14px 28px;
     font-size: 16px;
     font-weight: 600;
     text-align: center;
     justify-content: center;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 .confirm-buttons .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    background: linear-gradient(135deg, var(--primary-color), #3b82f6);
     color: white;
+    border: none;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 
 .confirm-buttons .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
 }
 
 .confirm-buttons .btn-secondary {
     background: white;
     color: var(--text-dark);
-    border: 2px solid var(--border-color);
+    border: 2px solid #e2e8f0;
 }
 
 .confirm-buttons .btn-secondary:hover {
     background: var(--bg-light);
     border-color: var(--text-light);
+    transform: translateY(-2px);
 }
 
 /* ==========================================
