@@ -678,6 +678,10 @@ section {
     font-weight: 700;
 }
 
+.product-features li strong {
+    font-weight: 700;
+}
+
 .btn-product {
     width: 100%;
     justify-content: center;
