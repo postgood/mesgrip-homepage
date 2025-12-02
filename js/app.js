@@ -7,7 +7,7 @@ const API_URL = (function() {
     
     // www.mesgrip.com으로 접근하면 실제 API 서버 사용
     if (hostname === 'www.mesgrip.com' || hostname === 'mesgrip.com') {
-        return 'https://api.mesgrip.com/ws';
+        return 'https://api.mesgrip.com/public/ws';
     }
     
     // 그 외의 경우 (localhost, 127.0.0.1, 테스트 도메인 등) 테스트 서버 사용
