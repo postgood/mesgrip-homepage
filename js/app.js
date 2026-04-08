@@ -1015,9 +1015,9 @@ function setCookie(name, value, exp, path, domain) {
     var date = new Date();
     date.setTime(date.getTime() + exp*1000); // 일
     var cookieText=encodeURIComponent(name) + "=" + encodeURIComponent(value);
-    cookieText+=(exp ? '; EXPIRES='+exp.toGMTString() : '; EXPIRES='+date.toUTCString());
-    cookieText+=(path ? '; PATH='+cookiePath : '; PATH=/');
-    cookieText+=(domain ? '; DOMAIN='+cookieDomain : '');
+    cookieText+=(exp ? '; EXPIRES='+date.toUTCString():'');
+    cookieText+=(path ? '; PATH='+path : '; PATH=/');
+    cookieText+=(domain ? '; DOMAIN='+domain : '');
     document.cookie=cookieText;
 }
 
