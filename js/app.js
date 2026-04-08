@@ -1005,3 +1005,27 @@ function closeConfirmModal() {
     $('body').css('overflow', 'auto');
     $(document).off('keyup.confirm');
 }
+
+function goDemo() {
+    setCookie('demoId', 'demo', 60, undefined, 'demo.mesgrip.com');
+    setCookie('demoPwd', '123456789',  60, undefined, 'demo.mesgrip.com');
+    window.open('https://demo.mesgrip.com', '_blank');
+}
+function setCookie(name, value, exp, path, domain) {
+    var date = new Date();
+    date.setTime(date.getTime() + exp*1000); // 일
+    var cookieText=encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    cookieText+=(exp ? '; EXPIRES='+exp.toGMTString() : '; EXPIRES='+date.toUTCString());
+    cookieText+=(path ? '; PATH='+cookiePath : '; PATH=/');
+    cookieText+=(domain ? '; DOMAIN='+cookieDomain : '');
+    document.cookie=cookieText;
+}
+
+function getCookie(name) {
+    var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return value? decodeURIComponent(value[2]) : null;
+}
+
+function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+}
