@@ -1007,8 +1007,8 @@ function closeConfirmModal() {
 }
 
 function goDemo() {
-    setCookie('demoId', 'demo', 60, undefined, 'demo.mesgrip.com');
-    setCookie('demoPwd', '123456789',  60, undefined, 'demo.mesgrip.com');
+    setCookie('demoId', 'demo', 60, undefined, 'mesgrip.com');
+    setCookie('demoPwd', '123456789',  60, undefined, 'mesgrip.com');
     window.open('https://demo.mesgrip.com', '_blank');
 }
 function setCookie(name, value, exp, path, domain) {
