@@ -24,6 +24,10 @@ let timeLeft = 300; // 5분 (300초)
 let jtSeq = null; // 인증관리번호
 let isVerified = false; // 이메일 인증 완료 여부
 
+function isInquiryForm() {
+    return $('#cManagerNm').length > 0 && $('#cContent').length > 0;
+}
+
 // ==========================================
 // 초기화
 // ==========================================
@@ -34,7 +38,7 @@ function initProductSelection() {
     $('.btn-product[data-product]').on('click', function(e) {
         e.preventDefault();
         
-        const sSeq = $(this).data('product'); // 1, 2, 3, 4
+        const sSeq = $(this).data('product'); // 1, 2, 3
         
         // 신청 양식의 상품 선택 드롭다운에 자동 선택
         $('#sSeq').val(sSeq);
@@ -204,6 +208,23 @@ function initScrollEffects() {
 // ==========================================
 function initPhoneFormat() {
     $('#cTel').on('input', function() {
+        let value = $(this).val().replace(/[^0-9]/g, '');
+        let formatted = '';
+
+        if (value.length <= 3) {
+            formatted = value;
+        } else if (value.length <= 7) {
+            formatted = value.substr(0, 3) + '-' + value.substr(3);
+        } else if (value.length <= 11) {
+            formatted = value.substr(0, 3) + '-' + value.substr(3, 4) + '-' + value.substr(7);
+        } else {
+            formatted = value.substr(0, 3) + '-' + value.substr(3, 4) + '-' + value.substr(7, 4);
+        }
+
+        $(this).val(formatted);
+    });
+
+    $('#cManagerTel').on('input', function() {
         let value = $(this).val().replace(/[^0-9]/g, '');
         let formatted = '';
 
@@ -445,6 +466,18 @@ function checkBusinessNumber() {
 // 폼 핸들러
 // ==========================================
 function initFormHandlers() {
+    const inquiryMode = isInquiryForm();
+
+    if (inquiryMode) {
+        $('#cNm, #cManagerNm, #cManagerTel, #cContent').on('input change', function() {
+            checkFormValidity();
+        });
+
+        $('#informationYn').change(function() {
+            checkFormValidity();
+        });
+    }
+
     // 주소 검색
     $('#searchAddressBtn').click(function() {
         openAddressSearch();
@@ -477,9 +510,11 @@ function initFormHandlers() {
     });
 
     // 필수 입력 필드 변경 시 폼 유효성 검사
-    $('#cNm, #cBizNo, #cOwnerNm, #cTel, #cInvoiceEmail, #sSeq, #cDomain, #eNm, #eId, #ePwd, #ePwdRe').on('input change', function() {
-        checkFormValidity();
-    });
+    if (!inquiryMode) {
+        $('#cNm, #cBizNo, #cOwnerNm, #cTel, #cInvoiceEmail, #sSeq, #cDomain, #eNm, #eId, #ePwd, #ePwdRe').on('input change', function() {
+            checkFormValidity();
+        });
+    }
 
     // 비밀번호 확인 실시간 검증
     $('#ePwdRe').on('input', function() {
@@ -709,6 +744,18 @@ function showVerificationStatus(type, message) {
 // 폼 유효성 검사
 // ==========================================
 function checkFormValidity() {
+    if (isInquiryForm()) {
+        const cNm = $('#cNm').val().trim();
+        const cManagerNm = $('#cManagerNm').val().trim();
+        const cManagerTel = $('#cManagerTel').val().replace(/[^0-9]/g, '');
+        const cContent = $('#cContent').val().trim();
+        const informationYn = $('#informationYn').prop('checked');
+
+        const isValid = cNm && cManagerNm && cManagerTel.length >= 9 && cContent && informationYn;
+        $('#submitBtn').prop('disabled', !isValid);
+        return;
+    }
+
     const cNm = $('#cNm').val().trim();
     const cBizNo = $('#cBizNo').val().replace(/[^0-9]/g, '');
     const cOwnerNm = $('#cOwnerNm').val().trim();
@@ -749,6 +796,11 @@ function checkFormValidity() {
 // 신청서 제출
 // ==========================================
 function submitApplication() {
+    if (isInquiryForm()) {
+        submitInquiry();
+        return;
+    }
+
     if (!isVerified) {
         alert('이메일 인증을 완료해주세요.');
         return;
@@ -876,6 +928,71 @@ function submitApplication() {
                 '<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
                 '</svg>'
             );
+        }
+    });
+}
+
+function submitInquiry() {
+    if (!$('#informationYn').prop('checked')) {
+        alert('개인정보 수집 및 이용에 동의해주세요.');
+        return;
+    }
+
+    const payload = {
+        cNm: $('#cNm').val().trim(),
+        cManagerNm: $('#cManagerNm').val().trim(),
+        cManagerTel: $('#cManagerTel').val().replace(/[^0-9]/g, ''),
+        cContent: $('#cContent').val().trim(),
+        informationYn: 'Y'
+    };
+
+    if (!payload.cNm || !payload.cManagerNm || !payload.cManagerTel || !payload.cContent) {
+        alert('필수 항목을 모두 입력해주세요.');
+        return;
+    }
+
+    $('#submitBtn').prop('disabled', true).html('<span>전송 중...</span>');
+
+    const endpoints = [
+        { ctl: 'hompage', cmd: 'userQnaInsert' },
+        { ctl: 'homepage', cmd: 'userQnaInsert' }
+    ];
+
+    requestInquiry(endpoints, payload);
+}
+
+function requestInquiry(endpoints, payload, index = 0) {
+    if (index >= endpoints.length) {
+        alert('문의 접수 중 오류가 발생했습니다.\n다시 시도해주세요.');
+        $('#submitBtn').prop('disabled', false).html(
+            '<span>문의하기</span>' +
+            '<svg class="btn-icon" viewBox="0 0 24 24" fill="none">' +
+            '<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>'
+        );
+        return;
+    }
+
+    const requestData = Object.assign({}, payload, endpoints[index]);
+
+    $.ajax({
+        url: API_URL,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(requestData),
+        success: function(response) {
+            if (response.code === 0) {
+                alert('문의가 정상 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
+                $('#applyForm')[0].reset();
+                checkFormValidity();
+                return;
+            }
+
+            requestInquiry(endpoints, payload, index + 1);
+        },
+        error: function(xhr, status, error) {
+            console.error('Inquiry API Error:', error);
+            requestInquiry(endpoints, payload, index + 1);
         }
     });
 }

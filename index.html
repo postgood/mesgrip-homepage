@@ -439,6 +439,7 @@
                             <li>정산관리(거래처수금현황)</li>
                             <li>메세지(FAX,SMS,Email)</li>
                             <li><strong>자재관리</strong></li>
+                            <li><strong>통계관리</strong></li>
                             <li>게시판</li>
                             <li><strong>사용자 20명</strong></li>
                         </ul>
@@ -446,28 +447,6 @@
                     <a href="#apply" class="btn btn-product" data-product="3">시작하기</a>
                 </div>
 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-card-content">
-                        <div class="product-badge">대규모</div>
-                        <h3 class="product-name">Premium</h3>
-                        <p class="product-description">대규모 인쇄업체</p>
-                        <div class="product-price">
-                            <span class="price-amount">160만원</span>
-                            <span class="price-period">부터</span>
-                        </div>
-                        <ul class="product-features">
-                            <li>기본설정</li>
-                            <li>현장관리(팩키지)</li>
-                            <li>정산관리(거래처수금현황)</li>
-                            <li>메세지(FAX,SMS,Email)</li>
-                            <li>자재관리</li>
-                            <li><strong>통계관리</strong></li>
-                            <li>게시판</li>
-                            <li><strong>사용자 50명</strong></li>
-                        </ul>
-                    </div>
-                    <a href="#apply" class="btn btn-product" data-product="4">시작하기</a>
-                </div>
             </div>
         </div>
     </section>
@@ -568,7 +547,9 @@
     </section>
 
     <!-- 무료 체험 신청 -->
+     
     <section class="apply-section" id="apply">
+        <!--
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">FREE TRIAL</span>
@@ -618,7 +599,6 @@
                                 <option value="1">Small - 소기업 (30만원)</option>
                                 <option value="2" selected>Standard - 일반사업장 (월 50만원)</option>
                                 <option value="3">Large - 중소규모 (월 80만원)</option>
-                                <option value="4">Premium - 대규모 (160만원부터)</option>
                             </select>
                         </div>
 
@@ -749,6 +729,61 @@
 
                     <button type="submit" class="btn btn-submit btn-large" id="submitBtn" disabled>
                         <span>무료 체험 신청하기</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>-->
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Q&A</span>
+                <h2 class="section-title">궁굼한 점이 있으신가요? 지금 바로 문의하세요</h2>
+                <p class="section-description">
+                    빠른시간안에 답변드립니다.  
+                </p>
+            </div>
+
+            <div class="apply-form-container">
+                <form id="applyForm" class="apply-form">
+                    <div class="form-section">
+                        
+                        <div class="form-group">
+                            <label for="cNm">회사명 <span class="required">*</span></label>
+                            <input type="text" id="cNm" name="cNm" placeholder="회사명을 입력하세요" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cManagerNm">담당자 <span class="required">*</span></label>
+                                <input type="text" id="cManagerNm" name="cManagerNm" placeholder="담당자를 입력하세요" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cManagerTel">연락처 <span class="required">*</span></label>
+                                <input type="tel" id="cManagerTel" name="cManagerTel" placeholder="010-0000-0000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cContent">내용 <span class="required">*</span></label>
+                            <textarea id="cContent" name="cContent" placeholder="문의내용을 입력하세요" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="terms-item">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="agree-checkbox" name="informationYn" id="informationYn" required>
+                                <span>[필수] 개인정보 수집 및 이용에 동의합니다</span>
+                            </label>
+                            <button type="button" class="btn-view-terms" data-terms="privacy">전문보기</button>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-submit btn-large" id="submitBtn" disabled>
+                        <span>문의하기</span>
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
                             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>

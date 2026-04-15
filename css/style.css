@@ -575,7 +575,7 @@ section {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
@@ -603,11 +603,11 @@ section {
 .product-card.featured {
     border-color: var(--primary-color);
     box-shadow: var(--shadow-lg);
-    transform: scale(1.05);
+    transform: none;
 }
 
 .product-card.featured:hover {
-    transform: scale(1.05) translateY(-10px);
+    transform: translateY(-10px);
 }
 
 .product-badge {
