@@ -65,6 +65,7 @@ const I18N = {
         ],
         productBadges: ['소기업', '일반사업장', '중소규모'],
         productDescriptions: ['소규모 인쇄업체', '일반규모 인쇄업체', '중소규모 인쇄업체'],
+        productPrices: ['월 30만원', '월 50만원', '월 80만원'],
         productFeatures: [
             '기본설정', '현장관리', '정산관리', '게시판', '사용자 5명',
             '기본설정', '현장관리', '정산관리(거래처수금현황)', '메세지(FAX,SMS,Email)', '게시판', '사용자 10명',
@@ -85,6 +86,7 @@ const I18N = {
             processDiagrams: ['수주 프로세스', '생산 프로세스', '외주 프로세스', '팩키지 프로세스', '물류 프로세스', '자재 프로세스', '정산 프로세스', '통계 프로세스'],
             screenshots: ['수주관리 화면', '생산관리 화면', '외주관리 화면', '팩키지관리 화면', '물류관리 화면', '자재관리 화면 1', '자재관리 화면 2', '정산관리 화면 1', '정산관리 화면 2', '통계관리 화면 1', '통계관리 화면 2']
         },
+        footerContact: ['서울 중구 서애로5길 17, HB빌딩 2층', 'TEL. 02-2275-3758', 'FAX. 02-2275-3759'],
         footerMenu: ['회사소개', '오시는길', '이용약관', '개인정보수집 및 이용안내', '개인정보 처리방침', '저작권 및 책임의 한계'],
         inquiryLabels: ['회사명', '담당자', '연락처', '내용'],
         inquiryPlaceholders: ['회사명을 입력하세요', '담당자를 입력하세요', '010-0000-0000', '문의내용을 입력하세요'],
@@ -134,6 +136,7 @@ const I18N = {
         ],
         productBadges: ['Small Business', 'General Business', 'SME'],
         productDescriptions: ['For small printing companies', 'For mid-size printing companies', 'For growing small and medium printers'],
+        productPrices: ['KRW 300,000 / month', 'KRW 500,000 / month', 'KRW 800,000 / month'],
         productFeatures: [
             'Basic setup', 'Shop-floor management', 'Settlement management', 'Board', '5 users',
             'Basic setup', 'Shop-floor management', 'Settlement management (A/R status by client)', 'Messages (FAX, SMS, Email)', 'Board', '10 users',
@@ -154,6 +157,7 @@ const I18N = {
             processDiagrams: ['Order process', 'Production process', 'Outsourcing process', 'Package process', 'Logistics process', 'Material process', 'Settlement process', 'Analytics process'],
             screenshots: ['Order management screen', 'Production management screen', 'Outsourcing management screen', 'Package management screen', 'Logistics management screen', 'Material management screen 1', 'Material management screen 2', 'Settlement management screen 1', 'Settlement management screen 2', 'Analytics management screen 1', 'Analytics management screen 2']
         },
+        footerContact: ['2F, HB Building, 17 Seoae-ro 5-gil, Jung-gu, Seoul, Republic of Korea', 'TEL. +82-2-2275-3758', 'FAX. +82-2-2275-3759'],
         footerMenu: ['About Us', 'Directions', 'Terms of Use', 'Privacy Collection & Use', 'Privacy Policy', 'Copyright & Liability Limits'],
         inquiryLabels: ['Company Name', 'Contact Person', 'Phone', 'Message'],
         inquiryPlaceholders: ['Enter company name', 'Enter contact person', '010-0000-0000', 'Enter your inquiry'],
@@ -196,6 +200,7 @@ function applyLanguage() {
     setTextByIndex('.solution-features li', t.solutionFeatures);
     setTextByIndex('.product-badge', t.productBadges);
     setTextByIndex('.product-description', t.productDescriptions);
+    setTextByIndex('.price-amount', t.productPrices);
     setTextByIndex('.product-features li', t.productFeatures);
     setTextByIndex('.btn-product', t.productButtons);
     $('.products-notice').text(t.productNotice);
@@ -206,6 +211,7 @@ function applyLanguage() {
         }
     });
     setTextByIndex('.footer-menu a', t.footerMenu);
+    setTextByIndex('.footer-info p', t.footerContact);
     $('.process-diagram').each(function(index) {
         if (t.imageAlts.processDiagrams[index] !== undefined) {
             $(this).attr('alt', t.imageAlts.processDiagrams[index]);
