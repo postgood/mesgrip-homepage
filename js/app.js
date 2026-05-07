@@ -23,6 +23,259 @@ let verificationTimer = null;
 let timeLeft = 300; // 5분 (300초)
 let jtSeq = null; // 인증관리번호
 let isVerified = false; // 이메일 인증 완료 여부
+let currentLanguage = localStorage.getItem('mesgrip-lang') || 'ko';
+
+const I18N = {
+    ko: {
+        htmlLang: 'ko',
+        metaDescription: 'MESGRIP - 인쇄공정 통합관리 솔루션',
+        title: 'MESGRIP - 스마트한 인쇄 생산관리',
+        nav: ['홈', '솔루션', '서비스상품', '기대효과', '데모 체험'],
+        heroBadge: '인쇄 산업의 디지털 혁신',
+        heroTitle: '스마트한 인쇄 생산관리<br><span class="highlight">MESGRIP</span>으로 시작하세요',
+        heroDescription: '수주부터 생산, 정산까지 하나로 연결되는<br>인쇄공정 통합관리 솔루션',
+        heroButtons: ['무료 체험 시작하기', '자세히 알아보기'],
+        sectionTitles: ['통합 관리의 모든 것', '서비스 상품', 'MESGRIP 도입 기대효과', '궁굼한 점이 있으신가요? 지금 바로 문의하세요'],
+        sectionDescriptions: [
+            '인쇄 사업의 모든 프로세스를 하나의 시스템으로 관리하세요',
+            '비즈니스 규모에 맞는 최적의 상품을 선택하세요',
+            '검증된 효과로 비즈니스 성장을 가속화하세요',
+            '빠른시간안에 답변드립니다.'
+        ],
+        solutionTitles: ['수주관리', '생산관리', '외주관리', '팩키지관리', '물류관리', '자재관리', '정산관리', '통계관리'],
+        solutionDescriptions: [
+            '작업 등록부터 견적서 발행, 수주 확정까지 거래처별 수주 현황을 실시간으로 관리하고 변경사항을 즉시 공지할 수 있습니다.',
+            '공정별 작업 진행상황을 한눈에 파악하고 작업지시서를 자동 생성하여 효율적인 생산 프로세스를 구축하세요.',
+            '협력업체와 실시간으로 소통하며 외주 발주부터 품질 검수까지 스마트하게 협업 관리할 수 있습니다.',
+            '다품목 개별생산을 단일건으로 묶어 팩키지별 원가 계산과 일정을 통합 관리할 수 있습니다.',
+            '입출고 등록부터 배송 스케줄, 차량 배차까지 실시간으로 배송 현황을 추적할 수 있습니다.',
+            '자재 입출고부터 재고 현황까지 실시간으로 조회하고 안전재고 알림으로 효율적으로 관리하세요.',
+            '매출/매입 자료를 등록하고 거래처별 정산을 관리하며 전자세금계산서를 연동하여 스마트하게 정산하세요.',
+            '매출과 생산 통계를 분석하고 거래처별 실적을 조회하며 맞춤형 대시보드로 한눈에 파악하세요.'
+        ],
+        solutionFeatures: [
+            '작업 등록 및 수정 관리', '견적서 자동 발행', '수주 진행상태 트래킹', '거래처별 현황 조회', '변경사항 실시간 공지',
+            '공정별 진행상황 관리', '작업지시서 자동 생성', '실시간 생산현황 모니터링', '설비 가동률 분석', '불량률 추적 및 관리',
+            '외주업체 등록 및 평가', '외주 발주 및 진행관리', '외주비용 자동 정산', '협력업체 실시간 소통', '품질 검수 시스템',
+            '다품목 일괄 등록 관리', '세트 상품 구성 관리', '팩키지별 원가 계산', '일정 통합 관리', '출고 순서 자동 최적화',
+            '입고/출고 등록 및 추적', '배송 스케줄 관리', '차량 배차 최적화', '실시간 배송 현황 조회', '배송 완료 알림',
+            '자재 입출고 관리', '재고 현황 실시간 조회', '안전재고 알림 기능', '발주 자동 추천', '자재별 소요량 분석',
+            '매출/매입 자료 등록', '거래처별 정산 관리', '전자세금계산서 연동', '수금/지급 스케줄 관리', '손익 분석 및 리포트',
+            '매출/생산 통계 분석', '거래처별 실적 조회', '기간별 비교 분석', '품목별 수익성 분석', '맞춤형 대시보드 제공'
+        ],
+        productBadges: ['소기업', '일반사업장', '중소규모'],
+        productDescriptions: ['소규모 인쇄업체', '일반규모 인쇄업체', '중소규모 인쇄업체'],
+        productFeatures: [
+            '기본설정', '현장관리', '정산관리', '게시판', '사용자 5명',
+            '기본설정', '현장관리', '정산관리(거래처수금현황)', '메세지(FAX,SMS,Email)', '게시판', '사용자 10명',
+            '기본설정', '현장관리(팩키지)', '정산관리(거래처수금현황)', '메세지(FAX,SMS,Email)', '자재관리', '통계관리', '게시판', '사용자 20명'
+        ],
+        productNotice: '※ 추가 계정당 20,000원 별도 비용',
+        productButtons: ['시작하기', '시작하기', '시작하기'],
+        benefitTitles: ['업무 효율 30% 향상', '비용 절감 20%', '품질 향상', '납기 준수율 95%', '데이터 기반 의사결정', '협업 강화'],
+        benefitDescriptions: [
+            '자동화된 프로세스와 실시간 정보 공유로<br>반복 업무를 줄이고 생산성을 높입니다.',
+            '재고 최적화와 불량률 감소로<br>운영 비용을 효과적으로 절감합니다.',
+            '체계적인 공정 관리와 품질 검수로<br>불량률을 최소화하고 품질을 높입니다.',
+            '실시간 진행 관리와 일정 최적화로<br>고객 만족도를 크게 향상시킵니다.',
+            '통합 대시보드와 상세 분석으로<br>정확한 경영 판단을 지원합니다.',
+            '부서 간 실시간 정보 공유로<br>원활한 커뮤니케이션을 실현합니다.'
+        ],
+        imageAlts: {
+            processDiagrams: ['수주 프로세스', '생산 프로세스', '외주 프로세스', '팩키지 프로세스', '물류 프로세스', '자재 프로세스', '정산 프로세스', '통계 프로세스'],
+            screenshots: ['수주관리 화면', '생산관리 화면', '외주관리 화면', '팩키지관리 화면', '물류관리 화면', '자재관리 화면 1', '자재관리 화면 2', '정산관리 화면 1', '정산관리 화면 2', '통계관리 화면 1', '통계관리 화면 2']
+        },
+        footerMenu: ['회사소개', '오시는길', '이용약관', '개인정보수집 및 이용안내', '개인정보 처리방침', '저작권 및 책임의 한계'],
+        inquiryLabels: ['회사명', '담당자', '연락처', '내용'],
+        inquiryPlaceholders: ['회사명을 입력하세요', '담당자를 입력하세요', '010-0000-0000', '문의내용을 입력하세요'],
+        inquiryTerms: '[필수] 개인정보 수집 및 이용에 동의합니다',
+        inquiryButton: '문의하기',
+        modalClose: '닫기',
+        confirmButtons: ['취소', '확인'],
+        companyInfo: ['현아이엔씨(주)', '대표: 권주홍', '사업자번호: 688-86-03757'],
+        footerCopyright: 'COPYRIGHT © 2024 현아이엔씨(주) ALL RIGHTS RESERVED.'
+    },
+    en: {
+        htmlLang: 'en',
+        metaDescription: 'MESGRIP - Integrated management solution for print operations',
+        title: 'MESGRIP - Smart Print Production Management',
+        nav: ['Home', 'Solutions', 'Service Plans', 'Benefits', 'Try Demo'],
+        heroBadge: 'Digital Innovation in Printing',
+        heroTitle: 'Smarter Print Production Management<br>Start with <span class="highlight">MESGRIP</span>',
+        heroDescription: 'An all-in-one integrated solution<br>from order to production and settlement',
+        heroButtons: ['Start Free Trial', 'Learn More'],
+        sectionTitles: ['Everything in One Integrated Platform', 'Service Plans', 'Expected Benefits of MESGRIP', 'Have Questions? Contact Us Now'],
+        sectionDescriptions: [
+            'Manage every printing workflow in one unified system',
+            'Choose the best plan for your business size',
+            'Accelerate growth with proven outcomes',
+            'We will get back to you as quickly as possible.'
+        ],
+        solutionTitles: ['Order Management', 'Production Management', 'Outsourcing Management', 'Package Management', 'Logistics Management', 'Material Management', 'Settlement Management', 'Analytics Management'],
+        solutionDescriptions: [
+            'Manage each client order in real time from job registration to quotation and order confirmation, and announce updates immediately.',
+            'Track each process step at a glance and automatically generate work orders to build an efficient production workflow.',
+            'Collaborate with partners in real time, from outsourcing requests to quality inspection, in one smart workflow.',
+            'Bundle multiple individual items into one package and manage package-level costs and schedules in one place.',
+            'Track delivery status in real time from inbound/outbound registration to delivery scheduling and vehicle assignment.',
+            'Monitor material in/out and inventory status in real time, and manage efficiently with safety stock alerts.',
+            'Register sales/purchase data, manage settlement by client, and integrate e-tax invoices for smarter settlement.',
+            'Analyze sales and production metrics, review client performance, and monitor key results on a tailored dashboard.'
+        ],
+        solutionFeatures: [
+            'Job registration and updates', 'Automatic quotation issuance', 'Order progress tracking', 'Client status lookup', 'Real-time change notifications',
+            'Process progress management', 'Automatic work order generation', 'Real-time production monitoring', 'Equipment utilization analysis', 'Defect rate tracking',
+            'Outsourcing vendor registration and rating', 'Outsourcing order and progress control', 'Automatic outsourcing cost settlement', 'Real-time partner communication', 'Quality inspection workflow',
+            'Bulk multi-item registration', 'Set product composition management', 'Package-level cost calculation', 'Integrated schedule management', 'Automatic shipment sequence optimization',
+            'Inbound/outbound registration and tracking', 'Delivery schedule management', 'Vehicle dispatch optimization', 'Real-time delivery tracking', 'Delivery completion notifications',
+            'Material in/out management', 'Real-time inventory visibility', 'Safety stock alert feature', 'Automatic purchase recommendation', 'Material consumption analysis',
+            'Sales/purchase data registration', 'Client-wise settlement management', 'Electronic tax invoice integration', 'Collection/payment schedule management', 'P&L analysis and reports',
+            'Sales/production statistical analysis', 'Client performance lookup', 'Period-over-period comparison', 'Item profitability analysis', 'Custom dashboard support'
+        ],
+        productBadges: ['Small Business', 'General Business', 'SME'],
+        productDescriptions: ['For small printing companies', 'For mid-size printing companies', 'For growing small and medium printers'],
+        productFeatures: [
+            'Basic setup', 'Shop-floor management', 'Settlement management', 'Board', '5 users',
+            'Basic setup', 'Shop-floor management', 'Settlement management (A/R status by client)', 'Messages (FAX, SMS, Email)', 'Board', '10 users',
+            'Basic setup', 'Shop-floor management (Package)', 'Settlement management (A/R status by client)', 'Messages (FAX, SMS, Email)', 'Material management', 'Analytics management', 'Board', '20 users'
+        ],
+        productNotice: '* KRW 20,000 per additional account',
+        productButtons: ['Get Started', 'Get Started', 'Get Started'],
+        benefitTitles: ['30% Higher Work Efficiency', '20% Cost Reduction', 'Improved Quality', '95% On-Time Delivery', 'Data-Driven Decisions', 'Stronger Collaboration'],
+        benefitDescriptions: [
+            'Automated workflows and real-time information sharing<br>reduce repetitive tasks and boost productivity.',
+            'Inventory optimization and lower defect rates<br>effectively reduce operating costs.',
+            'Systematic process management and quality inspections<br>minimize defects and improve quality.',
+            'Real-time progress tracking and schedule optimization<br>greatly improve customer satisfaction.',
+            'Integrated dashboards and detailed analytics<br>support accurate management decisions.',
+            'Real-time cross-team information sharing<br>enables smooth communication.'
+        ],
+        imageAlts: {
+            processDiagrams: ['Order process', 'Production process', 'Outsourcing process', 'Package process', 'Logistics process', 'Material process', 'Settlement process', 'Analytics process'],
+            screenshots: ['Order management screen', 'Production management screen', 'Outsourcing management screen', 'Package management screen', 'Logistics management screen', 'Material management screen 1', 'Material management screen 2', 'Settlement management screen 1', 'Settlement management screen 2', 'Analytics management screen 1', 'Analytics management screen 2']
+        },
+        footerMenu: ['About Us', 'Directions', 'Terms of Use', 'Privacy Collection & Use', 'Privacy Policy', 'Copyright & Liability Limits'],
+        inquiryLabels: ['Company Name', 'Contact Person', 'Phone', 'Message'],
+        inquiryPlaceholders: ['Enter company name', 'Enter contact person', '010-0000-0000', 'Enter your inquiry'],
+        inquiryTerms: '[Required] I agree to the collection and use of personal information',
+        inquiryButton: 'Send Inquiry',
+        modalClose: 'Close',
+        confirmButtons: ['Cancel', 'OK'],
+        companyInfo: ['HYUN INC Co., Ltd.', 'CEO: Joo Hong Kwon', 'Business No.: 688-86-03757'],
+        footerCopyright: 'COPYRIGHT © 2024 HYUN INC Co., Ltd. ALL RIGHTS RESERVED.'
+    }
+};
+
+function getText(key) {
+    return I18N[currentLanguage][key];
+}
+
+function setTextByIndex(selector, values) {
+    $(selector).each(function(index) {
+        if (values[index] !== undefined) {
+            $(this).text(values[index]);
+        }
+    });
+}
+
+function applyLanguage() {
+    const t = I18N[currentLanguage];
+    $('html').attr('lang', t.htmlLang);
+    $('meta[name="description"]').attr('content', t.metaDescription);
+    document.title = t.title;
+
+    setTextByIndex('.nav .nav-link', t.nav);
+    $('.hero-badge').text(t.heroBadge);
+    $('.hero-title').html(t.heroTitle);
+    $('.hero-description').html(t.heroDescription);
+    setTextByIndex('.hero-buttons a span', t.heroButtons);
+    setTextByIndex('.section-title', t.sectionTitles);
+    setTextByIndex('.section-description', t.sectionDescriptions);
+    setTextByIndex('.solution-title', t.solutionTitles);
+    setTextByIndex('.solution-description', t.solutionDescriptions);
+    setTextByIndex('.solution-features li', t.solutionFeatures);
+    setTextByIndex('.product-badge', t.productBadges);
+    setTextByIndex('.product-description', t.productDescriptions);
+    setTextByIndex('.product-features li', t.productFeatures);
+    setTextByIndex('.btn-product', t.productButtons);
+    $('.products-notice').text(t.productNotice);
+    setTextByIndex('.benefit-title', t.benefitTitles);
+    $('.benefit-description').each(function(index) {
+        if (t.benefitDescriptions[index] !== undefined) {
+            $(this).html(t.benefitDescriptions[index]);
+        }
+    });
+    setTextByIndex('.footer-menu a', t.footerMenu);
+    $('.process-diagram').each(function(index) {
+        if (t.imageAlts.processDiagrams[index] !== undefined) {
+            $(this).attr('alt', t.imageAlts.processDiagrams[index]);
+        }
+    });
+    $('.solution-screenshot').each(function(index) {
+        if (t.imageAlts.screenshots[index] !== undefined) {
+            $(this).attr('alt', t.imageAlts.screenshots[index]);
+        }
+    });
+    setTextByIndex('.apply-form .form-group > label', t.inquiryLabels);
+
+    const inquiryInputs = ['#cNm', '#cManagerNm', '#cManagerTel', '#cContent'];
+    inquiryInputs.forEach(function(selector, index) {
+        if (t.inquiryPlaceholders[index] !== undefined) {
+            $(selector).attr('placeholder', t.inquiryPlaceholders[index]);
+        }
+    });
+
+    $('.apply-form .terms-item .checkbox-label span').text(t.inquiryTerms);
+    $('#submitBtn span').text(t.inquiryButton);
+    $('#closeModalBtn').text(t.modalClose);
+    setTextByIndex('#confirmCancelBtn, #confirmOkBtn', t.confirmButtons);
+    setTextByIndex('.footer-company p', t.companyInfo);
+    $('.footer-bottom p').text(t.footerCopyright);
+
+    switchImagesByLanguage();
+    $('.lang-btn').removeClass('active');
+    $('.lang-btn[data-lang="' + currentLanguage + '"]').addClass('active');
+}
+
+function switchImagesByLanguage() {
+    $('.process-diagram, .solution-screenshot').each(function() {
+        const $img = $(this);
+        if (!$img.attr('data-original-src')) {
+            $img.attr('data-original-src', $img.attr('src'));
+        }
+
+        const originalSrc = $img.attr('data-original-src');
+        if (currentLanguage === 'ko') {
+            $img.attr('src', originalSrc);
+            return;
+        }
+
+        const enSrc = originalSrc.replace(/(\.[a-zA-Z0-9]+)$/, '_en$1');
+        $img.off('error.i18n').on('error.i18n', function() {
+            $img.attr('src', originalSrc);
+        });
+        $img.attr('src', enSrc);
+    });
+}
+
+function initLanguageSwitcher() {
+    $('.lang-btn').on('click', function() {
+        const lang = $(this).data('lang');
+        if (lang !== 'ko' && lang !== 'en') {
+            return;
+        }
+        const previousLanguage = currentLanguage;
+        currentLanguage = lang;
+        localStorage.setItem('mesgrip-lang', currentLanguage);
+        applyLanguage();
+
+        if (previousLanguage !== 'en' && currentLanguage === 'en') {
+            alert('The English version is currently being prepared.');
+        }
+    });
+
+    applyLanguage();
+}
 
 function isInquiryForm() {
     return $('#cManagerNm').length > 0 && $('#cContent').length > 0;
@@ -85,6 +338,7 @@ function initHeroButtons() {
 }
 
 $(document).ready(function() {
+    initLanguageSwitcher();
     initNavigation();
     initScrollEffects();
     initFormHandlers();
@@ -934,7 +1188,9 @@ function submitApplication() {
 
 function submitInquiry() {
     if (!$('#informationYn').prop('checked')) {
-        alert('개인정보 수집 및 이용에 동의해주세요.');
+        alert(currentLanguage === 'en'
+            ? 'Please agree to the collection and use of personal information.'
+            : '개인정보 수집 및 이용에 동의해주세요.');
         return;
     }
 
@@ -947,11 +1203,13 @@ function submitInquiry() {
     };
 
     if (!payload.cNm || !payload.cManagerNm || !payload.cManagerTel || !payload.cContent) {
-        alert('필수 항목을 모두 입력해주세요.');
+        alert(currentLanguage === 'en'
+            ? 'Please complete all required fields.'
+            : '필수 항목을 모두 입력해주세요.');
         return;
     }
 
-    $('#submitBtn').prop('disabled', true).html('<span>전송 중...</span>');
+    $('#submitBtn').prop('disabled', true).html('<span>' + (currentLanguage === 'en' ? 'Sending...' : '전송 중...') + '</span>');
 
     const endpoints = [
         { ctl: 'hompage', cmd: 'userQnaInsert' },
@@ -963,9 +1221,11 @@ function submitInquiry() {
 
 function requestInquiry(endpoints, payload, index = 0) {
     if (index >= endpoints.length) {
-        alert('문의 접수 중 오류가 발생했습니다.\n다시 시도해주세요.');
+        alert(currentLanguage === 'en'
+            ? 'An error occurred while sending your inquiry.\nPlease try again.'
+            : '문의 접수 중 오류가 발생했습니다.\n다시 시도해주세요.');
         $('#submitBtn').prop('disabled', false).html(
-            '<span>문의하기</span>' +
+            '<span>' + (currentLanguage === 'en' ? 'Send Inquiry' : '문의하기') + '</span>' +
             '<svg class="btn-icon" viewBox="0 0 24 24" fill="none">' +
             '<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
             '</svg>'
@@ -982,7 +1242,9 @@ function requestInquiry(endpoints, payload, index = 0) {
         data: JSON.stringify(requestData),
         success: function(response) {
             if (response.code === 0) {
-                alert('문의가 정상 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
+                alert(currentLanguage === 'en'
+                    ? 'Your inquiry has been submitted successfully.\nWe will contact you shortly.'
+                    : '문의가 정상 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
                 $('#applyForm')[0].reset();
                 checkFormValidity();
                 return;
