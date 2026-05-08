@@ -256,7 +256,7 @@ function switchImagesByLanguage() {
             return;
         }
 
-        const enSrc = originalSrc.replace(/(\.[a-zA-Z0-9]+)$/, '_en$1');
+        const enSrc = originalSrc.replace(/\/([^\/?#]+)(\?[^#]*)?(#.*)?$/, '/eng/$1$2$3');
         $img.off('error.i18n').on('error.i18n', function() {
             $img.attr('src', originalSrc);
         });
