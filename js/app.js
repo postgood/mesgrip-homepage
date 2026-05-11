@@ -211,6 +211,7 @@ function applyLanguage() {
         }
     });
     setTextByIndex('.footer-menu a', t.footerMenu);
+    $('.footer-link-ko-only').toggle(currentLanguage === 'ko');
     setTextByIndex('.footer-info p', t.footerContact);
     $('.process-diagram').each(function(index) {
         if (t.imageAlts.processDiagrams[index] !== undefined) {
@@ -270,14 +271,9 @@ function initLanguageSwitcher() {
         if (lang !== 'ko' && lang !== 'en') {
             return;
         }
-        const previousLanguage = currentLanguage;
         currentLanguage = lang;
         localStorage.setItem('mesgrip-lang', currentLanguage);
         applyLanguage();
-
-        if (previousLanguage !== 'en' && currentLanguage === 'en') {
-            alert('The English version is currently being prepared.');
-        }
     });
 
     applyLanguage();
