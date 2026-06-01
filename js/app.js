@@ -34,7 +34,7 @@ const I18N = {
         heroBadge: '인쇄 산업의 디지털 혁신',
         heroTitle: '스마트한 인쇄 생산관리<br><span class="highlight">MESGRIP</span>으로 시작하세요',
         heroDescription: '수주부터 생산, 정산까지 하나로 연결되는<br>인쇄공정 통합관리 솔루션',
-        heroButtons: ['무료 체험 시작하기', '자세히 알아보기'],
+        heroButtons: ['데모체험 시작하기', '자세히 알아보기'],
         sectionTitles: ['통합 관리의 모든 것', '서비스 상품', 'MESGRIP 도입 기대효과', '궁굼한 점이 있으신가요? 지금 바로 문의하세요'],
         sectionDescriptions: [
             '인쇄 사업의 모든 프로세스를 하나의 시스템으로 관리하세요',
@@ -105,7 +105,7 @@ const I18N = {
         heroBadge: 'Digital Innovation in Printing',
         heroTitle: 'Smarter Print Production Management<br>Start with <span class="highlight">MESGRIP</span>',
         heroDescription: 'An all-in-one integrated solution<br>from order to production and settlement',
-        heroButtons: ['Start Free Trial', 'Learn More'],
+        heroButtons: ['Start Demo', 'Learn More'],
         sectionTitles: ['Everything in One Integrated Platform', 'Service Plans', 'Expected Benefits of MESGRIP', 'Have Questions? Contact Us Now'],
         sectionDescriptions: [
             'Manage every printing workflow in one unified system',
